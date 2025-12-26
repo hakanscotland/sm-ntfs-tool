@@ -23,6 +23,7 @@ libc = { workspace = true }
 
 [dev-dependencies]
 criterion = { workspace = true }
+tempfile = "3.13"
 
 # TODO: Add benchmarks later
 # [[bench]]

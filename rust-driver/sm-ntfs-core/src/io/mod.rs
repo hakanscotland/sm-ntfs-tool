@@ -6,4 +6,6 @@ pub mod device;
 pub mod buffer;
 pub mod sync;
 
-pub use device::BlockDevice;
+pub use device::{BlockDevice, DEFAULT_SECTOR_SIZE};
+pub use buffer::IOBuffer;
+pub use sync::{SyncPolicy, SyncManager};
