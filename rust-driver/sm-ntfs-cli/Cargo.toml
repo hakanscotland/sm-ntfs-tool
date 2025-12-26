@@ -1,0 +1,22 @@
+[package]
+name = "sm-ntfs-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+# Internal dependencies
+sm-ntfs-core = { path = "../sm-ntfs-core" }
+sm-ntfs-fuse = { path = "../sm-ntfs-fuse" }
+
+# Workspace dependencies
+tokio = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# CLI-specific dependencies
+clap = { version = "4.5", features = ["derive"] }

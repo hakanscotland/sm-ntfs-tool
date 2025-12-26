@@ -1,0 +1,59 @@
+[workspace]
+members = [
+    "sm-ntfs-core",
+    # "sm-ntfs-fuse",  # TODO: Enable on macOS (requires FUSE)
+    # "sm-ntfs-cli",   # TODO: Enable on macOS
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["SM-NTFS Team"]
+edition = "2021"
+rust-version = "1.75"
+license = "MIT"
+repository = "https://github.com/hakanscotland/sm-ntfs-tool"
+
+[workspace.dependencies]
+# NTFS & Filesystem
+ntfs = "0.4"
+fuser = "0.14"
+
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+async-trait = "0.1"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+
+# Caching
+lru = "0.12"
+
+# FFI
+libc = "0.2"
+
+# Testing
+criterion = "0.5"
+
+# CLI
+clap = { version = "4.5", features = ["derive"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true
